@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.wrap{
+				width: 312px;
+				margin: 100px auto;
+			}
+			.wrap ul li,
+			.wrap div{
+				width: 312px;
+				height: 34px;
+				font: 20px/34px "微软雅黑";
+				color: black;
+			}
+			.wrap ul li:nth-child(2n){
+				background: #e4ffff;
+			}
+			.wrap div{
+				border-bottom: 2px solid #cccccc;
+			}
+			.wrap ul li:hover{
+				background: lightgray;
+			}
+			.wrap ul li input,
+			.wrap div input{
+				float: left;
+				margin: 10px 16px;
+			}
+			.wrap ul li span:nth-of-type(1),
+			.wrap div span{
+				width: 46px;
+				height: 34px;
+				display: block;
+				float: left;
+			}
+			.wrap ul li span:nth-of-type(2){
+				width: 134px;
+				height: 34px;
+				display: block;
+				float: left;
+				margin-left: 65px;
+				text-align: center;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var oWrap=document.getElementsByClassName('wrap')[0];
+				var aInp=oWrap.querySelectorAll('ul li input');
+				var oAll=oWrap.querySelector('.wrap div input');
+				
+				oAll.onclick=function(){
+					if(oAll.checked){
+						for(var i=0;i<aInp.length;i++){
+							aInp[i].checked=true;
+						}
+					}else{
+						for(var i=0;i<aInp.length;i++){
+							aInp[i].checked=false;
+						}
+					}
+				}
+				for(var i=0;i<aInp.length;i++){
+					aInp[i].onclick=function(){
+						if(!this.checked){
+							oAll.checked=false;
+						}else{
+							oAll.checked=true;
+							for(var j=0;j<aInp.length;j++){
+								if(!aInp[j].checked){
+									oAll.checked=false;
+								}
+							}
+						}
+					}
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<ul>
+				<li>
+					<input type="checkbox" />
+					<span>私奔</span>
+					<span>梁博</span>
+				</li>
+				<li>
+					<input type="checkbox" />
+					<span>私奔</span>
+					<span>梁博</span>
+				</li>
+				<li>
+					<input type="checkbox" />
+					<span>私奔</span>
+					<span>梁博</span>
+				</li>
+				<li>
+					<input type="checkbox" />
+					<span>私奔</span>
+					<span>梁博</span>
+				</li>
+				<li>
+					<input type="checkbox" />
+					<span>私奔</span>
+					<span>梁博</span>
+				</li>
+				<li>
+					<input type="checkbox" />
+					<span>私奔</span>
+					<span>梁博</span>
+				</li>
+			</ul>
+			<div>
+				<input type="checkbox" />
+					<span>全选</span>
+			</div>
+		</div>
+	</body>
+</html>
